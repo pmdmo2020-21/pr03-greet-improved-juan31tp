@@ -28,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/txtNameHint"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:imeOptions="actionDone"/>
 
     <TextView
         android:id="@+id/lblSurnameTag"
@@ -41,7 +42,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/txtSurnameHint"
-        android:inputType="text"/>
+        android:inputType="text"
+        android:imeOptions="actionDone"/>
 
     <!-- /////////////// TREATMENT BLOCK /////////////// -->
     <TextView
