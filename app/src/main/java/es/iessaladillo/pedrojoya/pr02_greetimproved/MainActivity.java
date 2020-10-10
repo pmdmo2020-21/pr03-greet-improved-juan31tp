@@ -17,9 +17,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //Binding usage.
-        binding.inflate(getLayoutInflater());
+        binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        //Binding usage.
+        //binding.inflate(getLayoutInflater());
+        //setContentView(binding.getRoot());
 
         setDefaultOptions();
 
