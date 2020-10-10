@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">Greet Improved</string>
+    <string name="app_name">Greet</string>
+    <string name="nameTag">Name</string>
+    <string name="surnameTag">Surname</string>
+    <string name="treatmentTag">Treatment</string>
+    <string name="mr">Mr.</string>
+    <string name="mrs">Mrs.</string>
+    <string name="ms">Ms.</string>
+    <string name="politely">Politely</string>
+    <string name="premiumTag">Premium</string>
+    <string name="btnGreet">GREET</string>
+    <string name="greetsCounter">0 of 10</string>
+    <string name="buyPremium">Dont be poor-minded, buy premium, you won\'t regret!</string>
+    <string name="txtNameHint">Introduce your name</string>
+    <string name="txtSurnameHint">Introduce your surname</string>
 </resources>

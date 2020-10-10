@@ -1,10 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/llRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:padding="@dimen/mainMargin"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
-    <!-- TODO -->
+    <!-- /////////////// PREMIUM/FREEMIUM SWITCH BUTTON /////////////// -->
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/lblPremiumSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/premiumTag"
+        android:layout_gravity="end" />
+
+    <!-- /////////////// NAME AND SURNAME BLOCK /////////////// -->
+    <TextView
+        android:id="@+id/lblNameTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nameTag"/>
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtNameHint"
+        android:inputType="text"/>
+
+    <TextView
+        android:id="@+id/lblSurnameTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/surnameTag"/>
+
+    <EditText
+        android:id="@+id/txtSurname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/txtSurnameHint"
+        android:inputType="text"/>
+
+    <!-- /////////////// TREATMENT BLOCK /////////////// -->
+    <TextView
+        android:id="@+id/lblTreatmentTag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/treatmentTag"/>
+
+    <RadioGroup
+        android:id="@+id/rgdTreatment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!-- Image of the treatment selected, it should change as the user changes the treatment -->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgTreatment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop" />
+
+        <RadioButton
+            android:id="@+id/lblMr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mr"/>
+        <RadioButton
+            android:id="@+id/lblMrs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/mrs" />
+        <RadioButton
+            android:id="@+id/lblMs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ms" />
+    </RadioGroup>
+
+    <!-- /////////////// POLITE OPTION ///////////////
+     When a user activates it, the response the app launches, its polite, when its not activated, it is more informal -->
+    <CheckBox
+        android:id="@+id/chkPolite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/politely"
+        android:checked="false" />
+
+    <!-- /////////////// GREET BUTTON ///////////////
+         When a user press it, it sums one to the progress bar counter, and launches a greet -->
+    <Button
+        android:id="@+id/btnGreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnGreet"/>
+
+    <!-- /////////////// PROGRESS BAR ///////////////
+         When a user press it, it sums one to the progress bar counter, and launches a greet -->
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/progressGreetsCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:max="10" />
+
+    <TextView
+        android:id="@+id/lblGreetsCounter"
+        android:layout_gravity="end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/greetsCounter"/>
+
+    <!-- /////////////// GREET ///////////////
+          -->
+    <TextView
+        android:id="@+id/lblGreet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 </LinearLayout>
