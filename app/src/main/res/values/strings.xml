@@ -15,4 +15,9 @@
     <string name="txtSurnameHint">Introduce your surname</string>
     <string name="nameRequired">ERROR. Name required</string>
     <string name="surnameRequired">ERROR. Surname required</string>
+
+    <plurals name="charsLeft">
+        <item quantity="one">%1$d char</item>
+        <item quantity="other">%1$d chars</item>
+    </plurals>
 </resources>

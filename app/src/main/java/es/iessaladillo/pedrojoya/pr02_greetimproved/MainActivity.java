@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         //First, we are going to suposse the user will prefer Mr treatment
         binding.imgTreatment.setImageResource(R.drawable.ic_mr);
         binding.lblMr.setChecked(true);
+        //NOTA PARA EL PROFESOR: NO ENTIENDO POR QUÉ SI AQUÍ LE PONGO EL MR, CUANDO NO LO CLICKO ME DA NULL EN EL GREET :(
         //As we have just started the execution, the progress should be set to 0
         binding.progressGreetsCounter.setProgress(0);
         //We set the max chars counter at 20
@@ -46,6 +47,20 @@ public class MainActivity extends AppCompatActivity {
         binding.lblPremiumSwitch.setOnClickListener(c -> checkPremium());
         binding.btnGreet.setOnClickListener(c -> incrementShow());
         binding.rgdTreatment.setOnCheckedChangeListener((group, checkedId) -> selectTreatment(checkedId));
+        binding.txtName.setOnKeyListener((view, i, keyEvent) -> {
+            changeCharsCounter();
+            return false;
+        });
+        binding.txtSurname.setOnKeyListener((view, i, keyEvent) -> {
+            changeCharsCounter();
+            return false;
+        });
+    }
+
+    private void changeCharsCounter() {
+        int n=20;
+        binding.lblCharsLeftName.setText(getResources().getQuantityString(R.plurals.charsLeft, n - binding.txtName.getText().length(), n - binding.txtName.getText().length()));
+        binding.lblCharsLeftSurname.setText(getResources().getQuantityString(R.plurals.charsLeft, n - binding.txtSurname.getText().length(), n - binding.txtSurname.getText().length()));
     }
 
     //Method that, depending on the times the button was pressed and the pricing model, makes actions
