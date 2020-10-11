@@ -64,6 +64,19 @@ public class MainActivity extends AppCompatActivity {
             else if (!binding.lblPremiumSwitch.isChecked() && timesPressed >= 10) {
                 premiumMessage();
             }
+        } else {
+            showAlert();
+        }
+    }
+
+    private void showAlert() {
+        if(binding.txtName.getText().length()==0 && binding.txtSurname.getText().length()==0) {
+            binding.txtName.setError(getString(R.string.nameRequired));
+            binding.txtSurname.setError(getString(R.string.surnameRequired));
+        } else if(binding.txtName.getText().length()==0){
+            binding.txtName.setError(getString(R.string.nameRequired));
+        } else if (binding.txtSurname.getText().length()==0){
+            binding.txtSurname.setError(getString(R.string.surnameRequired));
         }
     }
 

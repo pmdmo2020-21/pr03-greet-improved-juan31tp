@@ -13,4 +13,6 @@
     <string name="buyPremium">Dont be poor-minded, buy premium, you won\'t regret!</string>
     <string name="txtNameHint">Introduce your name</string>
     <string name="txtSurnameHint">Introduce your surname</string>
+    <string name="nameRequired">ERROR. Name required</string>
+    <string name="surnameRequired">ERROR. Surname required</string>
 </resources>
