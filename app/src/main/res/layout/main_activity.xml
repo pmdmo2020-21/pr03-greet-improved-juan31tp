@@ -14,7 +14,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/premiumTag"
-        android:layout_gravity="end" />
+        android:layout_gravity="end"
+        />
 
     <!-- /////////////// NAME AND SURNAME BLOCK /////////////// -->
     <TextView
@@ -28,8 +29,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/txtNameHint"
-        android:inputType="text"
-        android:imeOptions="actionDone"/>
+        android:inputType="textCapWords"
+        android:layout_marginTop="@dimen/main_inner_margin"
+        android:imeOptions="actionDone"
+        android:importantForAutofill="no"
+        android:maxLength="@integer/nameMaxLength"/>
+
+    <TextView
+        android:id="@+id/lblCharsLeftName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"/>
+    <!-- ESTABLECER 20 POR DEFECTO -->
+
 
     <TextView
         android:id="@+id/lblSurnameTag"
@@ -42,21 +54,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/txtSurnameHint"
-        android:inputType="text"
-        android:imeOptions="actionDone"/>
+        android:inputType="textCapWords"
+        android:layout_marginTop="@dimen/main_inner_margin"
+        android:imeOptions="actionDone"
+        android:maxLength="@integer/surnameMaxLength"/>
+
+    <TextView
+        android:id="@+id/lblCharsLeftSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"/>
+    <!-- ESTABLECER 20 POR DEFECTO -->
 
     <!-- /////////////// TREATMENT BLOCK /////////////// -->
     <TextView
         android:id="@+id/lblTreatmentTag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/treatmentTag"/>
+        android:text="@string/treatmentTag"
+        android:layout_marginTop="@dimen/main_inner_margin"/>
 
     <RadioGroup
         android:id="@+id/rgdTreatment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/main_inner_margin">
 
         <!-- Image of the treatment selected, it should change as the user changes the treatment -->
         <androidx.appcompat.widget.AppCompatImageView
@@ -89,15 +112,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/politely"
-        android:checked="false" />
+        android:checked="false"
+        android:layout_marginTop="@dimen/main_inner_margin"/>
 
     <!-- /////////////// GREET BUTTON ///////////////
          When a user press it, it sums one to the progress bar counter, and launches a greet -->
     <Button
         android:id="@+id/btnGreet"
         android:layout_width="wrap_content"
+        android:layout_gravity="center"
         android:layout_height="wrap_content"
-        android:text="@string/btnGreet"/>
+        android:text="@string/btnGreet"
+        android:layout_marginTop="@dimen/main_inner_margin"/>
 
     <!-- /////////////// PROGRESS BAR ///////////////
          When a user press it, it sums one to the progress bar counter, and launches a greet -->
@@ -114,12 +140,5 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/greetsCounter"/>
-
-    <!-- /////////////// GREET ///////////////
-          -->
-    <TextView
-        android:id="@+id/lblGreet"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
 
 </LinearLayout>

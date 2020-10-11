@@ -2,6 +2,7 @@ package es.iessaladillo.pedrojoya.pr02_greetimproved;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private MainActivityBinding binding;
     private int timesPressed;
-    private String treatment;
+    String treatment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +20,6 @@ public class MainActivity extends AppCompatActivity {
 
         binding = MainActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        //Binding usage.
-        //binding.inflate(getLayoutInflater());
-        //setContentView(binding.getRoot());
 
         setDefaultOptions();
 
@@ -37,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
         binding.lblMr.setChecked(true);
         //As we have just started the execution, the progress should be set to 0
         binding.progressGreetsCounter.setProgress(0);
+        //We set the max chars counter at 20
+        binding.lblCharsLeftName.setText("20 chars");
+        binding.lblCharsLeftSurname.setText("20 chars");
     }
+
 
     //Method that, depending on what the user presses, makes actions.
     private void eventsListener() {
@@ -65,15 +67,16 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //Method that greets depending on the options selected
+    //Method that greets with Toast
     private void greet() {
         //First, we check if the user select politely greet
         if(binding.chkPolite.isChecked()){
-            binding.lblGreet.setText("Good morning "+treatment+" "+ binding.txtName.getText()+" "+ binding.txtSurname.getText()+" its a pleasure to meet you");
+            Toast.makeText(this, "Good morning "+treatment+" "+ binding.txtName.getText()+" "+ binding.txtSurname.getText()+" its a pleasure to meet you", Toast.LENGTH_LONG).show();
         } else {
-            binding.lblGreet.setText("Eyyyyyyy "+ binding.txtName.getText()+" what's up ");
+            Toast.makeText(this, "Eyyyyyyy "+ binding.txtName.getText()+" what's up!", Toast.LENGTH_LONG).show();
         }
     }
+
 
     //Method that checks if name and surname fields were filled
     private boolean textsFilled() {
@@ -86,12 +89,13 @@ public class MainActivity extends AppCompatActivity {
 
     //Method that launches a message that tells the user to buy premium
     private void premiumMessage() {
-        binding.lblGreet.setText(R.string.buyPremium);
+        Toast.makeText(this, R.string.buyPremium, Toast.LENGTH_SHORT).show();
     }
 
     //Method that executes when the user changes the treatment selected
     private void selectTreatment(int checkedId) {
         //In each case, we take the photo we need and we take the treatment text from the string xml
+
         if(checkedId == binding.lblMr.getId()){
             binding.imgTreatment.setImageResource(R.drawable.ic_mr);
             treatment = getString(R.string.mr);
@@ -108,10 +112,10 @@ public class MainActivity extends AppCompatActivity {
     private void checkPremium() {
         if(binding.lblPremiumSwitch.isChecked()){
             binding.progressGreetsCounter.setVisibility(View.GONE);
-            binding.progressGreetsCounter.setVisibility(View.GONE);
+            binding.lblGreetsCounter.setVisibility(View.GONE);
         } else {
             binding.progressGreetsCounter.setVisibility(View.VISIBLE);
-            binding.progressGreetsCounter.setVisibility(View.VISIBLE);
+            binding.lblGreetsCounter.setVisibility(View.VISIBLE);
             //As the freemium model is set, the counter returns to 0
             timesPressed=0;
             //As the freemium model is set, we need to show the times that the GREET has been used.
